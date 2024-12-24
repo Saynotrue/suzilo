@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+  <title>수질</title>
+  <script type="text/javascript" src="https://oapi.map.naver.com/openapi/v3/maps.js?ncpClientId=oidn0op4wb"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=28021007fad632aa43b4f8e97d25206d&libraries=services"></script>
+</head>
+
+<body>
+  <ul id="navbar">
+    <li>
+      <a href="/">Suzil</a>
+    </li>
+  </li>
+  <% if (user) { %> <!-- 로그인한 경우 -->
+    <li style="float:right">
+      <a class="active" href="/logout">Log Out</a> <!-- 로그아웃 링크 -->
+    </li>
+  <% } else { %> <!-- 로그인하지 않은 경우 -->
+    <li style="float:right">
+      <a class="active" href="/login">Certify</a> <!-- 로그인 링크 -->
+    </li>
+  <% } %>
+    <li style="float:right">
+      <a class="active" href="/upload">Upload</a>
+    </li>
+  </ul>
+  <div id="map" style="width:100%;height:100vh;"></div>
+  <div class="buttons">
+    <input type="button" id="SATELLITE" value="위성">
+    <input type="button" id="NORMAL" value="기본">
+    <input type="button" id="HYBRID" value="하이브리드">
+  </div>
+  <div id="current">현재 위치</div>
+  <script>
+    var map = new naver.maps.Map('map', {
+      center: new naver.maps.LatLng(36.5,127.5),
+      zoom: 7
+    });
+
+    var btns = $(".buttons > input");
+    btns.on("click", function(e) {
+      e.preventDefault();
+
+      var mapTypeId = this.id;
+
+      if (map.getMapTypeId() !== naver.maps.MapTypeId[mapTypeId]) {
+        map.setMapTypeId(naver.maps.MapTypeId[mapTypeId]); // 지도 유형 변경하기
+
+        btns.removeClass("control-on");
+        $(this).addClass("control-on");
+      }
+    });
+    // URLSearchParams를 사용해 쿼리 파라미터에서 에러 메시지 가져오기
+    const params = new URLSearchParams(window.location.search);
+    const error = params.get('error');
+    if (error) {
+      alert('관리자만 접근할 수 있습니다.'); // 에러 메시지를 alert로 표시
+      setTimeout(function() {
+        window.location.href = '/'; // 3초 후 홈 페이지로 리다이렉트
+      }, 1);
+    }
+  </script>
+  <script type="text/javascript" src="/javascripts/makerclustering.js"></script>
+  <script type="text/javascript" src="/javascripts/main.js"></script>
+</body>
+
+</html>

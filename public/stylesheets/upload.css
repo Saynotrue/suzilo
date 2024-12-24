@@ -1,0 +1,106 @@
+body {
+  padding: 0px !important;
+  margin: 0px !important;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background: #333;
+  position: fixed;
+  width: 100%;
+  z-index: 1001;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.active {
+  background-color: #0322AB;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.info .body {
+  position: relative;
+  overflow: hidden;
+}
+
+.info .desc {
+  position: relative;
+  margin: 8px 0 0 90px;
+  height: 75px;
+  display: block;
+}
+
+.map_wrap,
+.map_wrap * {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+}
+
+#menu_wrap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 200px;
+  margin: 50px 0 30px 10px;
+  padding: 5px;
+  overflow-y: auto;
+  background: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+  font-size: 12px;
+  border-radius: 10px;
+}
+
+#menu_wrap hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 2px solid #5f5f5f;
+  margin: 3px 0;
+}
+
+#placesList {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  width: 100%;
+}
+
+#placesList span {
+  display: block;
+  margin-top: 4px;
+}
+
+#placesList .info {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 20px;
+  border-bottom: 1px solid #888;
+}
+
+#placesList .info_title {
+  font-weight: bolder;
+}

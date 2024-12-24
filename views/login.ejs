@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Administrator Certification</title>
+  <link rel="stylesheet" href="/stylesheets/login.css" />
+</head>
+<body>
+  <section class="login-form">
+    <h1>Administrator Certification</h1>
+    <form action="/login" method="POST">
+      <!-- 사용자명 입력 -->
+      <div class="int-area">
+        <input type="text" id="username" name="username" autocomplete="off" required>
+        <label for="username">Username</label>
+      </div>
+      
+      <!-- 비밀번호 입력 -->
+      <div class="int-area">
+        <input type="password" id="password" name="password" autocomplete="off" required>
+        <label for="password">Password</label>
+      </div>
+      
+      <!-- 로그인 버튼 -->
+      <div class="btn-area">
+        <button type="submit">Certify</button>
+      </div>
+    </form>
+  </section>
+
+  <script>
+    // URL 쿼리 파라미터에서 에러 메시지를 가져와 alert 표시
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error');
+    if (error) {
+      alert(error);
+      setTimeout(function() {
+        window.location.href = '/login'; // 3초 후 홈 페이지로 리다이렉트
+      }, 1);
+    }
+  </script>
+</body>
+</html>

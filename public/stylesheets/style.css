@@ -1,0 +1,200 @@
+body {
+  padding: 0px !important;
+  margin: 0px !important;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  background: #333;
+  position: fixed;
+  width: 100%;
+  z-index: 1001;
+}
+
+li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  padding: 14px 16px;
+}
+
+.active {
+  background-color: #0322AB;
+  border-left:3px solid #333;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.marker {
+  width: 15px;
+  height: 15px;
+  background: skyblue;
+  border: 1.5px solid black;
+  border-radius: 50%;
+}
+
+
+
+.pulse-marker {
+  width: 10px;
+  height: 10px;
+  background-color: red;
+  border: 1.5px solid rgba(0, 0, 0, 0.75);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+.infowindow_wrap {
+  background: white;
+  padding: 20px;
+  border: 3px solid rgba(0, 0, 0, 0.2);
+}
+
+.infowindow_title {
+  font-size: 15px;
+  font-weight: bolder;
+}
+
+.infowindow_address {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.infowindow_length {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.infowindow_area {
+  font-size: 13px;
+  font-weight: normal;
+}
+
+.cluster1 {
+  width: 30px;
+  height: 30px;
+  line-height: 31px;
+  font-size: 10px;
+  border:1.5px  solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  background: rgba(255, 149, 79, 0.7);
+}
+
+.cluster2 {
+  width: 40px;
+  height: 40px;
+  line-height: 41px;
+  font-size: 10px;
+  border:1.5px  solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  background: rgba(255, 149, 79, 0.7);
+}
+
+.cluster3 {
+  width: 50px;
+  height: 50px;
+  line-height: 51px;
+  font-size: 10px;
+  border:1.5px  solid rgba(0,0,0,0.2);
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  background: rgba(255, 149, 79, 0.7);
+}
+
+/* 버튼 컨테이너 */
+.buttons {
+  position: absolute;
+  top: 250px; /* '현재 위치' 버튼 아래로 배치 */
+  left: 20px; /* 왼쪽에 정렬 */
+  z-index: 1000; /* 지도 위에 표시되도록 */
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* 버튼 간격을 일정하게 */
+}
+
+/* 버튼 기본 스타일 */
+.buttons input {
+  padding: 10px 20px;
+  font-size: 14px;
+  background-color: #fff;
+  border: 2px solid #0078ff;
+  border-radius: 5px;
+  color: #0078ff;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  width: 100px; /* 버튼 너비 */
+  height: 50px; /* 버튼 높이 */
+  text-align: center;
+}
+
+/* 버튼 호버 효과 */
+.buttons input:hover {
+  background-color: #0078ff;
+  color: #fff;
+}
+
+/* 선택된 버튼 스타일 */
+.buttons input.control-on {
+  background-color: #0078ff;
+  color: #fff;
+  border-color: #005bb5;
+}
+
+/* '현재 위치' 버튼 스타일 */
+#current {
+  position: absolute;
+  top: 195px; /* 기존 위치와 동일하게 유지 */
+  left: 20px;
+  z-index: 1001;
+  background-color: #fff;
+  padding: 10px 20px;
+  border: 2px solid #0078ff;
+  border-radius: 5px;
+  color: #0078ff;
+  cursor: pointer;
+  width:56px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  text-align: center;
+}
+
+/* '현재 위치' 버튼 호버 효과 */
+#current:hover {
+  background-color: #0078ff;
+  color: #fff;
+}
