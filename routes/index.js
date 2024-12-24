@@ -4,7 +4,7 @@ const locationModel = require("../model/location");
 
 // 하드코딩된 사용자 정보 (테스트용)
 const users = [
-  { username: 'administrator', password: '!@#Suzil206' },
+  { username: '*****', password: '******' },
 ];
 
 /* 인증 미들웨어 */
